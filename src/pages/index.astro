@@ -1,35 +1,34 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>Hi, I'm Kyle.</h1>
-			<p>
-				I'm an experienced software engineer with a passion for game development,
-				graphics, virtual and augmented reality, and other creative applications
-				of technology.
-			</p>
-			<p>
-				Currently, I'm building internal tools that power personalized
-				recommendations on <a href="https://paramountplus.com">Paramount+</a>.
-			</p>
-			<p>
-				If you'd like to learn more about my journey and interests, take a look
-				<a href="/about">here</a>. Otherwise, feel free to explore my projects
-				and blog posts below, where I share insights on code, creativity,
-				and everything else. :-)
-			</p>
-		</main>
-		<Footer />
-	</body>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <h1>Hi, I'm Kyle.</h1>
+      <p>
+        I'm an experienced software engineer with a passion for game
+        development, graphics, virtual and augmented reality, and other creative
+        applications of technology.
+      </p>
+      <p>
+        I'm currently building internal tools that power personalized
+        recommendations on <a href="https://paramountplus.com">Paramount+</a>.
+      </p>
+      <p>
+        If you'd like to learn more about my journey and interests, take a look
+        <a href="/about">here</a>. Otherwise, feel free to explore my projects
+        and blog posts.
+      </p>
+    </main>
+    <Footer />
+  </body>
 </html>
