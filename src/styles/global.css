@@ -50,7 +50,7 @@ h6 {
   font-family: "Archivo Narrow", sans-serif;
 }
 h1 {
-  font-size: 4.052em;
+  font-size: 3.52em;
 }
 h2 {
   font-size: 2.441em;
@@ -154,4 +154,12 @@ hr {
 
 .fade-in-up {
   animation: 0.5s fadeInUp;
+}
+
+.bold-heading {
+  text-shadow: 1px 4px 0px #212322;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #131313;
+  font-variant-ligatures: contextual;
+  font-feature-settings: "calt";
 }
