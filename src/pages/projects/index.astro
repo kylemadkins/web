@@ -7,7 +7,7 @@ import { getCollection } from "astro:content";
 import FormattedDate from "../../components/FormattedDate.astro";
 
 const projects = (await getCollection("projects")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 ---
 
@@ -37,7 +37,6 @@ const projects = (await getCollection("projects")).sort(
       ul li:first-child {
         width: 100%;
         margin-bottom: 1rem;
-        text-align: center;
       }
       ul li:first-child img {
         width: 100%;
@@ -47,7 +46,6 @@ const projects = (await getCollection("projects")).sort(
       }
       ul li img {
         margin-bottom: 0.5rem;
-        border-radius: 12px;
         aspect-ratio: 720 / 360;
         object-fit: cover;
         object-position: center;
@@ -71,7 +69,6 @@ const projects = (await getCollection("projects")).sort(
         color: rgb(var(--accent));
       }
       ul a:hover img {
-        box-shadow: var(--box-shadow);
       }
       @media (max-width: 720px) {
         ul {
@@ -79,7 +76,6 @@ const projects = (await getCollection("projects")).sort(
         }
         ul li {
           width: 100%;
-          text-align: center;
         }
         ul li:first-child {
           margin-bottom: 0;

@@ -1,0 +1,42 @@
+---
+import FormattedDate from "./FormattedDate.astro";
+
+interface Props {
+  slug: string;
+  heroImage?: string;
+  title: string;
+  description: string;
+  pubDate: Date;
+}
+
+const { slug, heroImage, title, description, pubDate } = Astro.props;
+---
+
+<li data-aos="fade-up">
+  <a href={`/blog/${slug}/`}>
+    <img src={heroImage} alt="" />
+    <h4 class="title font-bold">{title}</h4>
+    <p class="desc text-black">{description}</p>
+    <p class="date text-black">
+      <FormattedDate date={pubDate} />
+    </p>
+  </a>
+</li>
+
+<style>
+  .title,
+  .desc {
+    margin: 0 0 0.5em 0;
+    padding: 0;
+    line-height: 1;
+  }
+
+  .title {
+    margin-top: 0.5em;
+  }
+
+  img {
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+</style>

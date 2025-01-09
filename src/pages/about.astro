@@ -1,93 +1,101 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
 const desc = `
-I'm an experienced software engineer with a passion for game development,
-graphics, virtual and augmented reality, and other creative applications
-of technology.`;
+Hiya, I'm Kyle. I'm an experienced programmer with an interest in the
+creative application of technology&mdash;simulations, virtual and
+augmented reality, graphics, digital art, game development, you name
+it.`;
 ---
 
 <html lang="en">
-	<head>
-		<BaseHead title="Kyle Adkins" description={desc} />
-		<style>
-			main {
-				width: calc(100% - 2em);
-				max-width: 100%;
-				margin: 0;
-			}
-			.hero-image {
-				width: 100%;
-			}
-			.hero-image img {
-				display: block;
-				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
-			}
-			.prose {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
-			}
-			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
-			}
-			.title h1 {
-				margin: 0 0 0.5em 0;
-			}
-			.date {
-				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
-			}
-			.last-updated-on {
-				font-style: italic;
-			}
-		</style>
-	</head>
+  <head>
+    <BaseHead title="Kyle Adkins" description={desc} />
+    <style>
+      main {
+        width: calc(100% - 2em);
+        max-width: 100%;
+        margin: 0;
+      }
+      .hero-image {
+        width: 100%;
+      }
+      .hero-image img {
+        display: block;
+        margin: 0 auto;
+      }
+      .prose {
+        width: 720px;
+        max-width: calc(100% - 2em);
+        margin: auto;
+        padding: 1em;
+        color: rgb(var(--gray-dark));
+      }
+      .title {
+        margin-bottom: 1em;
+        padding: 1em 0;
+        text-align: center;
+        line-height: 1;
+      }
+      .title h1 {
+        margin: 0 0 0.5em 0;
+      }
+      .date {
+        margin-bottom: 0.5em;
+        color: rgb(var(--gray));
+      }
+      .last-updated-on {
+        font-style: italic;
+      }
+    </style>
+  </head>
 
-	<body>
-		<Header />
-		<main>
-			<article>
-				<div class="hero-image">
-					<img width={1020} height={510} src="/blog-placeholder-about.jpg" alt="" />
-				</div>
-				<div class="prose">
-					<div class="title">
-						<h1>A little bit about me</h1>
-						<hr />
-					</div>
-					<h2>Professionally</h2>
-					<p>
-						I'm a software engineer with {new Date().getFullYear() - 2017}+
-						years of industry experience.
-					</p>
-					<p>
-						Right now I'm building internal
-						tools that power personalized recommendations
-						on <a href="https://paramountplus.com">Paramount+</a>.
-						Before that, I built dynamic user experiences for
-						<a href="https://few.io">Few</a>, including an <a href="https://few.io/launches/crystal-bridges">interactive timeline
-						of the Constitution</a> of the United States, which was on display
-						at the <a href="https://crystalbridges.org">Crystal Bridges Museum of American Art</a>.
-					</p>
-					<p>
-						Outside of my current job, I spend my free time
-						dabbling in game development, graphics, and other
-						creative applications of my talents.
-					</p>
-					<h2>Personally</h2>
-				</div>
-			</article>
-		</main>
-		<Footer />
-	</body>
+  <body>
+    <Header />
+    <main>
+      <article>
+        <div class="hero-image">
+          <img width={1020} height={510} src="/blog-placeholder-3.jpg" alt="" />
+        </div>
+        <div class="prose">
+          <div class="title">
+            <h1 class="uppercase font-oswald text-zinc-800 font-bold">
+              Hi, I'm Kyle
+            </h1>
+            <hr />
+          </div>
+          <p>
+            I'm a programmer with {new Date().getFullYear() - 2017}+ years of
+            industry experience building bespoke digital experiences. I landed
+            my first job at <a href="https://www.apptegy.com">Apptegy</a> two years
+            into college&mdash;a few months after my 20<sup>th</sup>
+            birthday.
+          </p>
+          <p>
+            Now I'm building internal tools that power personalized
+            recommendations on <a href="https://paramountplus.com">Paramount+</a
+            > as part of the Applied Machine Learning Group.
+          </p>
+          <p>
+            Before that, I brought the visions of world-class designers to life
+            for
+            <a href="https://few.io">Few</a>, including an <a
+              href="https://few.io/launches/crystal-bridges"
+              >interactive timeline</a
+            > of the Constitution of the United States, which was on display at the
+            Crystal Bridges Museum of American Art.
+          </p>
+          <p>
+            Outside of my current job, I've been exploring 3D game design and
+            development. When I'm not at a computer, I'm typically reading,
+            painting, playing games, cracking jokes, experiencing new things,
+            and squeezing as much joy out of life as I possibly can.
+          </p>
+        </div>
+      </article>
+    </main>
+    <Footer />
+  </body>
 </html>

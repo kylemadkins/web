@@ -1,6 +1,6 @@
 ---
 title: "Functional Programming in C++"
-description: "With a little help from the STL"
+description: "Just for... fun?"
 pubDate: "July 1, 2023"
 heroImage: "/blog-placeholder-3.jpg"
 ---
