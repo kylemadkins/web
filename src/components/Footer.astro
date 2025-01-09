@@ -3,7 +3,7 @@ const today = new Date();
 ---
 
 <footer>
-  <div class="contact py-16">
+  <div class="contact py-24">
     <h1
       data-aos="fade-up"
       class="font-bold uppercase text-zinc-100 font-oswald"
@@ -11,8 +11,8 @@ const today = new Date();
       Get in Touch
     </h1>
     <div data-aos="fade-up" class="social-links">
-      <a class="text-white" href="#"
-        ><svg class="h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+      <a href="#"
+        ><svg class="h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
           ><g fill="currentColor" class="nc-icon-wrapper"
             ><path
               fill="currentColor"
@@ -21,8 +21,8 @@ const today = new Date();
           ></svg
         ></a
       >
-      <a class="text-white" href="#"
-        ><svg class="h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+      <a href="#"
+        ><svg class="h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
           ><g fill="currentColor" class="nc-icon-wrapper"
             ><path
               fill-rule="evenodd"
@@ -33,8 +33,8 @@ const today = new Date();
           ></svg
         ></a
       >
-      <a class="text-white" href="#"
-        ><svg class="h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+      <a href="#"
+        ><svg class="h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
           ><g fill="currentColor" class="nc-icon-wrapper"
             ><circle fill="currentColor" cx="4" cy="19" r="3"></circle>
             <path
@@ -49,8 +49,8 @@ const today = new Date();
           ></svg
         ></a
       >
-      <a class="text-white" href="#"
-        ><svg class="h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+      <a href="#"
+        ><svg class="h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
           ><g
             stroke-linecap="square"
             stroke-miterlimit="10"
@@ -92,10 +92,9 @@ const today = new Date();
       <a class="underline" href="mailto:kylemadkins@gmail.com">Email</a> -->
     </div>
   </div>
-  <div
-    class="border-t-[1px] border-zinc-800 bg-zinc-900 text-zinc-500 py-8 text-sm"
-  >
-    &copy; {today.getFullYear()} Kyle Adkins. All rights reserved.
+  <div class="bg-zinc-900 text-zinc-600 py-5 text-sm">
+    Made with <span class="line-through">blood, sweat, and tears</span> love by Kyle
+    Adkins &copy; {today.getFullYear()}
   </div>
 </footer>
 <style>
@@ -105,14 +104,37 @@ const today = new Date();
   .social-links {
     display: flex;
     justify-content: center;
-    @apply gap-4 mt-8;
+    @apply gap-6 mt-8;
   }
   .social-links a,
   .social-links a:hover {
-    @apply text-sm text-zinc-200;
+    @apply text-zinc-200;
   }
   .contact {
     @apply bg-zinc-900;
+    --s: 82px; /* control the size*/
+    --c1: #18181b;
+    --c2: #374151;
+    --c3: #27272a;
+
+    --_g: var(--c3) 0 120deg, #0000 0;
+    background: conic-gradient(from -60deg at 50% calc(100% / 3), var(--_g)),
+      conic-gradient(from 120deg at 50% calc(200% / 3), var(--_g)),
+      conic-gradient(
+        from 60deg at calc(200% / 3),
+        var(--c3) 60deg,
+        var(--c2) 0 120deg,
+        #0000 0
+      ),
+      conic-gradient(from 180deg at calc(100% / 3), var(--c1) 60deg, var(--_g)),
+      linear-gradient(
+        90deg,
+        var(--c1) calc(100% / 6),
+        var(--c2) 0 50%,
+        var(--c1) 0 calc(500% / 6),
+        var(--c2) 0
+      );
+    background-size: calc(1.732 * var(--s)) var(--s);
   }
 </style>
 <script>
