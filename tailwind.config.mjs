@@ -7,10 +7,12 @@ export default {
     extend: {
       fontFamily: {
         "archivo-narrow": '"Archivo Narrow", sans-serif',
-        oswald: '"Bricolage Grotesque", sans-serif',
+        candal: '"Candal", sans-serif',
       },
       colors: {
         black: "rgb(24, 24, 27)",
+        yellow: "#f4bd1a",
+        gold: "#8c7329"
       },
       boxShadow: {
         simple: "0px 5px 0px 0px rgba(0, 0, 0, 0.15)",

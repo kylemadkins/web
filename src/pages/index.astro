@@ -8,11 +8,11 @@ import Post from "../components/Post.astro";
 import Project from "../components/Project.astro";
 
 const posts = (await getCollection("blog")).sort(
-  (a: any, b: any) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+  (a: any, b: any) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
 const projects = (await getCollection("projects")).sort(
-  (a: any, b: any) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+  (a: any, b: any) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 ---
 
@@ -24,70 +24,91 @@ const projects = (await getCollection("projects")).sort(
   <body>
     <Header />
     <main>
-      <section class="small-container py-32">
-        <h1 data-aos="fade-up" class="font-oswald font-bold">Hi, I'm Kyle.</h1>
-        <p data-aos="fade-up" class="fade-in-up mt-8 text-xl leading-[1.6]">
-          I'm an experienced programmer interested in the creative application
-          of technology&mdash;game development, virtual and augmented reality,
-          graphics, art, you name it. Welcome to my little internet hot dog
-          stand.
-        </p>
-        <a
-          data-aos="fade-up"
-          href="/about"
-          class="fade-in-up tracking-widest border-black border-2 mt-8 inline-block text-black hover:text-black font-bold px-6 py-4 uppercase font-archivo-narrow text-sm"
-          >About Me</a
-        >
+      <section class="relative py-32">
+        <!-- <img class="absolute w-1/2 -top-[10%]" src="./3d.png" /> -->
+        <div class="small-container">
+          <h1 data-aos="fade-up" class="font-candal">Hi, I'm Kyle.</h1>
+          <p data-aos="fade-up" class="fade-in-up mt-8 text-xl leading-[1.6]">
+            I'm an experienced programmer interested in the creative application
+            of technology&mdash;game development, virtual and augmented reality,
+            graphics, art, you name it. Welcome to my little internet hot dog
+            stand.
+          </p>
+          <a
+            data-aos="fade-up"
+            href="/about"
+            class="fade-in-up rounded-full border-2 border-black mt-8 inline-block text-black hover:text-black font-bold px-6 py-4 uppercase font-archivo-narrow text-sm"
+            >About Me</a
+          >
+        </div>
       </section>
 
-      <section class="wide-container">
-        <h2
-          data-aos="fade-up"
-          class="text-3xl uppercase font-bold font-oswald mb-4"
-        >
-          Latest Posts
-        </h2>
-        <ul class="sm:grid sm:grid-cols-2 gap-16">
-          {
-            posts
-              .slice(0, 3)
-              .map((post: any) => (
-                <Post
-                  slug={post.slug}
-                  heroImage={post.data.heroImage}
-                  title={post.data.title}
-                  description={post.data.description}
-                  pubDate={post.data.pubDate}
-                />
+      <section class="angled-top-section bg-zinc-100">
+        <div class="wide-container">
+          <h2 data-aos="fade-up" class="font-candal mb-8 text-black">
+            Latest Posts
+          </h2>
+          <ul class="sm:grid sm:grid-cols-2 gap-16">
+            {
+              posts.slice(0, 3).map((post: any) => (
+                <li data-aos="fade-up">
+                  <Post
+                    slug={post.slug}
+                    heroImage={post.data.heroImage}
+                    title={post.data.title}
+                    description={post.data.description}
+                    pubDate={post.data.pubDate}
+                    class="text-black hover:text-black"
+                  />
+                </li>
               ))
-          }
-        </ul>
+            }
+          </ul>
+
+          <a
+            data-aos="fade-up"
+            href="/blog"
+            class="fade-in-up rounded-full border-2 border-black mt-8 inline-block text-black hover:text-black font-bold px-6 py-4 uppercase font-archivo-narrow text-sm"
+            >See All</a
+          >
+        </div>
       </section>
 
       <section class="wide-container py-24">
-        <h2
-          data-aos="fade-up"
-          class="text-3xl uppercase font-bold font-oswald mb-4"
-        >
-          Recent Projects
-        </h2>
+        <h2 data-aos="fade-up" class="font-candal mb-8">Recent Projects</h2>
         <ul class="sm:grid sm:grid-cols-2 gap-16">
           {
-            projects
-              .slice(0, 3)
-              .map((post: any) => (
+            projects.slice(0, 3).map((post: any) => (
+              <li data-aos="fade-up">
                 <Project
                   slug={post.slug}
                   heroImage={post.data.heroImage}
                   title={post.data.title}
                   description={post.data.description}
                   pubDate={post.data.pubDate}
+                  class="text-black hover:text-black"
                 />
-              ))
+              </li>
+            ))
           }
         </ul>
+
+        <a
+          data-aos="fade-up"
+          href="/projects"
+          class="text-center fade-in-up rounded-full border-2 border-black mt-8 inline-block text-black hover:text-black font-bold px-6 py-4 uppercase font-archivo-narrow text-sm"
+          >See All</a
+        >
       </section>
     </main>
     <Footer />
   </body>
 </html>
+
+<style>
+  .angled-top-section {
+    @apply pt-48 pb-32;
+    -webkit-clip-path: polygon(0 15vh, 100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(0 15vh, 100% 0, 100% 100%, 0 100%);
+  }
+</style>

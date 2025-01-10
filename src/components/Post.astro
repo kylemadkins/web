@@ -7,32 +7,49 @@ interface Props {
   title: string;
   description: string;
   pubDate: Date;
+  class: string;
 }
 
-const { slug, heroImage, title, description, pubDate } = Astro.props;
+const {
+  slug,
+  heroImage,
+  title,
+  description,
+  pubDate,
+  class: className,
+} = Astro.props;
 ---
 
-<li data-aos="fade-up">
-  <a href={`/blog/${slug}/`}>
-    <img src={heroImage} alt="" />
-    <h4 class="title font-bold">{title}</h4>
-    <p class="desc text-black">{description}</p>
-    <p class="date text-black">
-      <FormattedDate date={pubDate} />
-    </p>
-  </a>
-</li>
+<a href={`/blog/${slug}/`} class:list={[className]}>
+  <img src={heroImage} alt="" />
+  <p class="uppercase font-archivo-narrow date text-inherit">
+    <FormattedDate date={pubDate} />
+  </p>
+  <h4 class="title font-bold text-inherit">{title}</h4>
+  <p class="desc text-inherit">{description}</p>
+  <p
+    class="read-more text-inherit uppercase font-archivo-narrow text-sm font-bold"
+  >
+    Read More &rarr;
+  </p>
+</a>
 
 <style>
   .title,
-  .desc {
-    margin: 0 0 0.5em 0;
+  .desc,
+  .date,
+  .read-more {
+    margin: 0 0 1rem 0;
     padding: 0;
     line-height: 1;
   }
 
-  .title {
-    margin-top: 0.5em;
+  .date {
+    margin-top: 2rem;
+  }
+
+  .read-more {
+    margin-top: 2rem;
   }
 
   img {

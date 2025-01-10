@@ -2,7 +2,7 @@
 title: "Functional Programming in C++"
 description: "Just for... fun?"
 pubDate: "July 1, 2023"
-heroImage: "/blog-placeholder-3.jpg"
+heroImage: "/pipes.jpg"
 ---
 
 I was introduced to C++ in college through an introductory programming course, where I gained the impression (like many others) that it was just C with classes. But most of the interesting features of modern C++ come from the [STL](https://en.wikipedia.org/wiki/Standard_Template_Library), and while it is heavily object-oriented, C++ supports many different programming paradigms, including functional programming.
