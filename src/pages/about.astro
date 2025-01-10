@@ -31,7 +31,7 @@ it.`;
         max-width: calc(100% - 2em);
         margin: auto;
         padding: 1em;
-        color: rgb(var(--gray-dark));
+        @apply text-black;
       }
       .title {
         margin-bottom: 1em;
@@ -55,30 +55,26 @@ it.`;
   <body>
     <Header />
     <main>
-      <article>
-        <div class="hero-image">
-          <img width={1020} height={510} src="/blog-placeholder-3.jpg" alt="" />
-        </div>
+      <article class="py-32">
         <div class="prose">
-          <div class="title">
-            <h1 class="font-candal text-zinc-800 font-bold">Who am I?</h1>
+          <div class="text-center mb-8">
+            <h1 data-aos="fade-up" class="mb-8 font-candal font-bold">
+              Who am I?
+            </h1>
             <hr />
           </div>
-          <p>
+          <p data-aos="fade-up">
             I'm Kyle Adkins. I'm a programmer with {
               new Date().getFullYear() - 2017
             }+ years of industry experience building bespoke digital
-            experiences. I landed my first job at <a
-              href="https://www.apptegy.com">Apptegy</a
-            > two years into college&mdash;a few months after my 20<sup>th</sup>
-            birthday.
+            experiences.
           </p>
-          <p>
-            Now I'm building internal tools that power personalized
+          <p data-aos="fade-up">
+            I'm currently building internal tools that power personalized
             recommendations on <a href="https://paramountplus.com">Paramount+</a
             > as part of the Applied Machine Learning Group.
           </p>
-          <p>
+          <p data-aos="fade-up">
             Before that, I brought the visions of world-class designers to life
             for
             <a href="https://few.io">Few</a>, including an <a
@@ -87,13 +83,16 @@ it.`;
             > of the Constitution of the United States, which was on display at the
             Crystal Bridges Museum of American Art.
           </p>
-          <p>
+          <p data-aos="fade-up">
             Outside of my current job, I've been exploring 3D game design and
             development. When I'm not at a computer, I'm typically reading,
             painting, playing games, cracking jokes, experiencing new things,
             and squeezing as much joy out of life as I possibly can.
           </p>
-          <p>Thanks for stopping by.</p>
+          <p data-aos="fade-up">
+            If you'd like to work with me or ask me a question, feel free to
+            contact me. I'm happy to help where I can. Thanks for stopping by!
+          </p>
         </div>
       </article>
     </main>

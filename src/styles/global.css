@@ -5,7 +5,7 @@
  */
 
 :root {
-  --accent: #6a1e55;
+  --accent: blue;
   --accent-dark: #000d8a;
   --white: rgb(255, 255, 255);
   --black: 24, 24, 27;
@@ -70,6 +70,9 @@ b {
 }
 a {
   color: var(--accent);
+}
+.prose a {
+  text-decoration: underline;
 }
 a:hover {
   color: var(--accent);
