@@ -36,7 +36,7 @@ const projects = (await getCollection("projects")).sort(
           <a
             data-aos="fade-up"
             href="/about"
-            class="fade-in-up rounded-full border-2 border-black mt-8 inline-block text-black hover:text-black font-bold px-6 py-4 uppercase font-archivo-narrow text-sm"
+            class="button rounded-full border-2 border-green hover:bg-transparent bg-green hover:border-black mt-8 inline-block hover:text-black text-white font-bold px-6 py-4 uppercase font-archivo-narrow text-sm"
             >Read My Bio</a
           >
         </div>
@@ -67,7 +67,7 @@ const projects = (await getCollection("projects")).sort(
           <a
             data-aos="fade-up"
             href="/blog"
-            class="fade-in-up rounded-full border-2 border-black mt-8 inline-block text-black hover:text-black font-bold px-6 py-4 uppercase font-archivo-narrow text-sm"
+            class="mt-8 button rounded-full border-2 border-green hover:bg-transparent bg-green hover:border-black mt-8 inline-block hover:text-black text-white font-bold px-6 py-4 uppercase font-archivo-narrow text-sm"
             >See All</a
           >
         </div>
@@ -95,7 +95,7 @@ const projects = (await getCollection("projects")).sort(
         <a
           data-aos="fade-up"
           href="/projects"
-          class="text-center fade-in-up rounded-full border-2 border-black mt-8 inline-block text-black hover:text-black font-bold px-6 py-4 uppercase font-archivo-narrow text-sm"
+          class="mt-8 button rounded-full border-2 border-green hover:bg-transparent bg-green hover:border-black mt-8 inline-block hover:text-black text-white font-bold px-6 py-4 uppercase font-archivo-narrow text-sm"
           >See All</a
         >
       </section>
@@ -109,5 +109,10 @@ const projects = (await getCollection("projects")).sort(
     @apply pt-48 pb-32;
     -webkit-clip-path: polygon(0 15vh, 100% 0, 100% 100%, 0 100%);
     clip-path: polygon(0 15vh, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .button[data-aos^="fade"][data-aos^="fade"] {
+    transition-property: opacity, transform, background-color, color,
+      border-color;
   }
 </style>
