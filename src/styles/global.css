@@ -68,10 +68,13 @@ strong,
 b {
   font-weight: 700;
 }
-a {
-  color: var(--accent);
+a,
+a:hover {
+  @apply text-black;
 }
-.prose a {
+.prose a,
+.prose a:hover {
+  @apply text-black;
   text-decoration: underline;
 }
 a:hover {
