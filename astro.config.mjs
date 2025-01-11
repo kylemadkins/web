@@ -14,4 +14,9 @@ export default defineConfig({
   integrations: [mdx(), sitemap(), tailwind()],
   output: "static",
   adapter: netlify(),
+  markdown: {
+    shikiConfig: {
+      theme: "night-owl",
+    },
+  },
 });

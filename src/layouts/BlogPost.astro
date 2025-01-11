@@ -14,40 +14,32 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
   <head>
     <BaseHead title={title} description={description} />
     <style>
-      main {
-        width: calc(100% - 2em);
-        max-width: 100%;
-        margin: 0;
-      }
       .hero-image {
         width: 100%;
       }
       .hero-image img {
         display: block;
         margin: 0 auto;
-        aspect-ratio: 720 / 360;
+        aspect-ratio: 16/9;
         object-fit: cover;
         object-position: center;
+        max-width: 800px;
+        width: 100%;
       }
       .prose {
         width: 720px;
         max-width: calc(100% - 2em);
         margin: auto;
-        padding: 1em;
-        color: rgb(var(--gray-dark));
       }
       .title {
-        margin-bottom: 1em;
-        padding: 1em 0;
+        padding: 1em 0 0 0;
         text-align: center;
         line-height: 1;
       }
-      .title h1 {
-        margin: 0 0 0.5em 0;
-      }
       .date {
-        margin-bottom: 0.5em;
-        color: rgb(var(--gray));
+        margin: 1em 0 0.5em 0;
+        text-transform: uppercase;
+        @apply font-archivo-narrow;
       }
       .last-updated-on {
         font-style: italic;
@@ -58,15 +50,21 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
   <body>
     <Header />
     <main>
-      <article>
+      <article class="py-16">
         <div class="hero-image">
           {
             heroImage && (
-              <img width={1020} height={510} src={heroImage} alt="" />
+              <img
+                data-aos="fade-up"
+                width={1020}
+                height={510}
+                src={heroImage}
+                alt=""
+              />
             )
           }
         </div>
-        <div class="prose">
+        <div data-aos="fade-up" class="prose">
           <div class="title">
             <div class="date">
               <FormattedDate date={pubDate} />
@@ -78,8 +76,8 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
                 )
               }
             </div>
-            <h1 class="font-candal text-5xl">{title}</h1>
-            <hr />
+            <h1 class="mb-8 font-decorative text-4xl sm:text-5xl">{title}</h1>
+            <hr class="mb-8" />
           </div>
           <slot />
         </div>
