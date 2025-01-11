@@ -55,7 +55,7 @@ const projects = (await getCollection("projects")).sort(
           <ul class="sm:grid sm:grid-cols-2 gap-16">
             {
               posts.slice(0, 3).map((post: any) => (
-                <li data-aos="fade-up" class="mb-12">
+                <li data-aos="fade-up" class="mb-12 sm:mb-0">
                   <Post
                     slug={post.slug}
                     heroImage={post.data.heroImage}
@@ -78,33 +78,38 @@ const projects = (await getCollection("projects")).sort(
         </div>
       </section>
 
-      <section class="wide-container py-24">
-        <h2 data-aos="fade-up" class="font-decorative uppercase font-bold mb-8">
-          Recent Projects
-        </h2>
-        <ul class="sm:grid sm:grid-cols-2 gap-16">
-          {
-            projects.slice(0, 3).map((post: any) => (
-              <li data-aos="fade-up" class="mb-12">
-                <Project
-                  slug={post.slug}
-                  heroImage={post.data.heroImage}
-                  title={post.data.title}
-                  description={post.data.description}
-                  pubDate={post.data.pubDate}
-                  class="text-black hover:text-black"
-                />
-              </li>
-            ))
-          }
-        </ul>
+      <section class="py-24 bg-white">
+        <div class="wide-container">
+          <h2
+            data-aos="fade-up"
+            class="font-decorative uppercase font-bold mb-8"
+          >
+            Recent Projects
+          </h2>
+          <ul class="sm:grid sm:grid-cols-2 gap-16">
+            {
+              projects.slice(0, 3).map((post: any) => (
+                <li data-aos="fade-up" class="mb-12 sm:mb-0">
+                  <Project
+                    slug={post.slug}
+                    heroImage={post.data.heroImage}
+                    title={post.data.title}
+                    description={post.data.description}
+                    pubDate={post.data.pubDate}
+                    class="text-black hover:text-black"
+                  />
+                </li>
+              ))
+            }
+          </ul>
 
-        <a
-          data-aos="fade-up"
-          href="/projects"
-          class="button font-decorative rounded-full border-2 border-orange hover:bg-transparent bg-orange hover:border-black mt-8 inline-block hover:text-black text-white font-bold px-6 py-4 text-base"
-          >View More</a
-        >
+          <a
+            data-aos="fade-up"
+            href="/projects"
+            class="button font-decorative rounded-full border-2 border-orange hover:bg-transparent bg-orange hover:border-black mt-8 inline-block hover:text-black text-white font-bold px-6 py-4 text-base"
+            >View More</a
+          >
+        </div>
       </section>
     </main>
     <Footer />
@@ -112,6 +117,11 @@ const projects = (await getCollection("projects")).sort(
 </html>
 
 <style>
+  body {
+    background-color: #ffffff;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23e4e4e7' fill-opacity='0.4'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
   .angled-top-section {
     @apply pt-48 pb-32;
     -webkit-clip-path: polygon(0 15vh, 100% 0, 100% 100%, 0 100%);
