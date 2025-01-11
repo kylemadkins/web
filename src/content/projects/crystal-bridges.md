@@ -7,6 +7,8 @@ heroImage: "/cb.jpg"
 
 During my time at [Few](https://few.io/), I was given the opportunity to collaborate with the [Crystal Bridges Museum of American Art](https://crystalbridges.org/) in Northwest Arkansas to build an interactive timeline of landmark Supreme Court cases for a new exhibit titled _[We the People: The Radical Notion of Democracy](https://crystalbridges.org/calendar/we-the-people/)_. The timeline offered visitors a more engaging way to learn about the history of the United States.
 
+![Crystal Bridges magnet](/magnet.jpg)
+
 Years later, this is still one of the most personally rewarding projects I've ever worked on. When the exhibit opened, I made the 3 hour drive from Little Rock to Bentonville to watch people interact with the timeline in person.
 
 ## Technology
