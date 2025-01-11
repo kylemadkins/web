@@ -92,6 +92,9 @@ h5 {
 .prose blockquote {
   @apply italic text-lg border-l-4 border-orange;
 }
+.prose img {
+  @apply w-full h-auto;
+}
 strong,
 b {
   font-weight: 700;
