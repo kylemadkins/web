@@ -24,7 +24,7 @@ One interesting thing about this project is that it was built using web technolo
 
 For these reasons, the team opted to use [Next.js](https://nextjs.org/) for its developer experience and [static site generation](https://nextjs.org/docs/pages/building-your-application/rendering/static-site-generation) (SSG) features. We used [Strapi](https://strapi.io/), an open source headless CMS built on Node.js, for managing the content. I even wrote a script to download any images in the CMS to the project directory because we couldn't link to them without an internet connection.
 
-Outside of the SSG considerations, the majority of the technical work for this project went into matching the look and feel of the original design. For the scroll snapping and animations, I explored many different tools until finally landing on [Framer Motion](https://motion.dev/) (since rebranded). I also wrote the most complex background style rule of my career so far during this project!
+Outside of the SSG considerations, the majority of the technical work for this project went into matching the look and feel of the original design. For the scroll snapping and animations, I explored many different tools until finally landing on [Framer Motion](https://motion.dev/). I also wrote the most complex background style rule of my career so far during this project!
 
 ```css
 .selector {

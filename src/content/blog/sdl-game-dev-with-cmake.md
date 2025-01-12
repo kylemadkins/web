@@ -5,4 +5,88 @@ pubDate: "Oct 3 2024"
 heroImage: "/2dengine.png"
 ---
 
-Much like me, this page is a work in progress!
+A while ago I started a course on [2D game engine programming](https://pikuma.com/courses/cpp-2d-game-engine-development) with C++. The course is taught by [Gustavo Pezzi](https://pikuma.com/about), a university lecturer in London. If you're interested in low-level programming and game development, I highly recommend checking him out. It's difficult to find resources on building interesting things with plain C++, so his site is a rare gem.
+
+## The Problem
+
+You'll often hear that C++ is not an easy language to learn. But I think that the most difficult aspect of C++ programming is the development environment. Coming from JavaScript, I quickly learned that I'd been spoiled by the ecosystem. Adding and managing dependencies is as simple as typing `npm install`. There's no such luxury with C++. Dealing with minor browser inconsistencies is a dream compared to building truly cross-platform C++ applications.
+
+![My first successful cross-platform build](/evidence.jpg)
+
+In the 2D game engine course, Gustavo walks through installing and linking dependencies for each operating system. But what if I want my game engine to work on _all_ operating systems? After all, many popular game engines such as Unity and Godot support every major operating system.
+
+![Godot is available for Windows, Mac, and Linux](/godot-cross-platform.png)
+
+## My Solution
+
+With that thought in my head, I found myself deep in the rabbit hole of C++ package managers and build systems. I discovered that [CMake](https://cmake.org/) is somewhat of an industry standard, so I focused on that. But how should I manage third-party dependencies? I didn't like the idea of someone having to install all of these dependencies in order to build and run my game engine. I tried [Conan](https://conan.io/) and [vcpkg](https://vcpkg.io/en/), but I found them a little clunky and overcomplicated for my small project.
+
+So I settled on fetching them straight from GitHub and building from source. At first I was using [`FetchContent`](https://cmake.org/cmake/help/latest/module/FetchContent.html), but after watching a couple [Cherno](https://www.youtube.com/@TheCherno) videos and learning about his [Hazel Engine](https://hazelengine.com/) (which interestingly enough only supports Windows currently!), I decided on using Git submodules.
+
+```cmake
+cmake_minimum_required(VERSION 3.8)
+
+project("2DGameEngine")
+
+# Add source to this project's executable.
+add_executable(2DGameEngine "src/Main.cpp" "src/Game.h" "src/Game.cpp")
+
+# SDL
+add_subdirectory("thirdparty/SDL")
+
+# SDL_image
+option(SDL2IMAGE_VENDORED "Use vendored third-party libraries" ON)
+add_subdirectory("thirdparty/SDL_image")
+
+# SDL_ttf
+option(SDL2TTF_VENDORED "Use vendored third-party libraries" ON)
+add_subdirectory("thirdparty/SDL_ttf")
+
+# SDL_mixer
+option(SDL2MIXER_VENDORED "Use vendored third-party libraries" ON)
+add_subdirectory("thirdparty/SDL_mixer")
+
+target_link_libraries(2DGameEngine SDL2::SDL2 SDL2_image::SDL2_image SDL2_ttf::SDL2_ttf SDL2_mixer::SDL2_mixer)
+
+# glm
+add_subdirectory("thirdparty/glm")
+include_directories("thirdparty/glm")
+
+# sol2
+include_directories("thirdparty/sol2/include")
+
+# imgui
+include_directories("thirdparty/imgui")
+```
+
+I've found that this structure makes adding external dependencies from GitHub relatively painless. After building and linking the dependencies, I added a few lines for copying any assets and DLL files to the final binary directory.
+
+```cmake
+# Copy assets
+add_custom_command(TARGET 2DGameEngine POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+    ${CMAKE_CURRENT_SOURCE_DIR}/assets
+    $<TARGET_FILE_DIR:2DGameEngine>/assets
+)
+
+# Copy DLLs
+if(WIN32)
+    set(SDL2_DEBUG_DLL "${CMAKE_BINARY_DIR}/thirdparty/SDL/SDL2d.dll")
+    set(SDL2_RELEASE_DLL "${CMAKE_BINARY_DIR}/thirdparty/SDL/SDL2.dll")
+    set(SDL2_IMAGE_DEBUG_DLL "${CMAKE_BINARY_DIR}/thirdparty/SDL_image/SDL2_imaged.dll")
+    set(SDL2_IMAGE_RELEASE_DLL "${CMAKE_BINARY_DIR}/thirdparty/SDL_image/SDL2_image.dll")
+
+    add_custom_command(TARGET 2DGameEngine POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        $<$<CONFIG:Debug>:${SDL2_DEBUG_DLL}>
+        $<$<CONFIG:Debug>:${SDL2_IMAGE_DEBUG_DLL}>
+        $<$<CONFIG:Release>:${SDL2_RELEASE_DLL}>
+        $<$<CONFIG:Release>:${SDL2_IMAGE_RELEASE_DLL}>
+        $<TARGET_FILE_DIR:2DGameEngine>
+    )
+endif()
+```
+
+## That's all for now
+
+I still have a lot to learn about C++ and CMake, and I'd like to continue studying Hazel Engine and other large-scale C++ projects to learn more about their build systems and how they manage dependencies. For example, Hazel and many other projects use [Premake](https://premake.github.io/) instead of CMake, and Godot uses [SCons](https://scons.org/). For now, however, I'm going to continue building the actual engine and developing my understanding of object-oriented design in C++, entity component systems, and other advanced game engine subjects. Eventually, I'd also like to explore 3D graphics programming and physics engines in C++.
