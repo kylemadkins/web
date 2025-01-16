@@ -44,6 +44,9 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
       .last-updated-on {
         font-style: italic;
       }
+      .share-on a {
+        @apply bg-orange text-white p-3 rounded-full;
+      }
     </style>
   </head>
 
@@ -76,7 +79,65 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
                 )
               }
             </div>
-            <h1 class="mb-8 font-decorative text-4xl sm:text-5xl">{title}</h1>
+            <h1 class="font-decorative text-4xl sm:text-5xl">{title}</h1>
+            <p class="!mt-4">{description}</p>
+            <div class="share-on flex justify-center mb-8 gap-6">
+              <a
+                href={`https://www.facebook.com/sharer/sharer.php?u=${Astro.url}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg
+                  class="h-5"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  ><g fill="currentColor" class="nc-icon-wrapper"
+                    ><path
+                      d="M24,12.072A12,12,0,1,0,10.125,23.926V15.541H7.078V12.072h3.047V9.428c0-3.007,1.792-4.669,4.532-4.669a18.611,18.611,0,0,1,2.687.234V7.947H15.83a1.734,1.734,0,0,0-1.947,1.49,1.71,1.71,0,0,0-.008.385v2.25H17.2l-.532,3.469h-2.8v8.385A12,12,0,0,0,24,12.072Z"
+                      fill="currentColor"></path></g
+                  ></svg
+                >
+              </a>
+
+              <!-- &text=Check out this post!&via=YourTwitterHandle -->
+              <a
+                href={`https://twitter.com/intent/tweet?url=${Astro.url}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg
+                  class="h-5"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  ><g fill="currentColor" class="nc-icon-wrapper"
+                    ><path
+                      fill="currentColor"
+                      d="M24,4.6c-0.9,0.4-1.8,0.7-2.8,0.8c1-0.6,1.8-1.6,2.2-2.7c-1,0.6-2,1-3.1,1.2c-0.9-1-2.2-1.6-3.6-1.6 c-2.7,0-4.9,2.2-4.9,4.9c0,0.4,0,0.8,0.1,1.1C7.7,8.1,4.1,6.1,1.7,3.1C1.2,3.9,1,4.7,1,5.6c0,1.7,0.9,3.2,2.2,4.1 C2.4,9.7,1.6,9.5,1,9.1c0,0,0,0,0,0.1c0,2.4,1.7,4.4,3.9,4.8c-0.4,0.1-0.8,0.2-1.3,0.2c-0.3,0-0.6,0-0.9-0.1c0.6,2,2.4,3.4,4.6,3.4 c-1.7,1.3-3.8,2.1-6.1,2.1c-0.4,0-0.8,0-1.2-0.1c2.2,1.4,4.8,2.2,7.5,2.2c9.1,0,14-7.5,14-14c0-0.2,0-0.4,0-0.6 C22.5,6.4,23.3,5.5,24,4.6z"
+                    ></path></g
+                  ></svg
+                >
+              </a>
+
+              <a
+                href={`https://www.linkedin.com/sharing/share-offsite/?url=${Astro.url}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg
+                  class="h-5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0.410653 7.96902H5.58936V24H0.410653V7.96902ZM3.00143 0C4.6564 0 6 1.29445 6 2.88917C6 4.48434 4.65639 5.77877 3.00143 5.77877C1.33986 5.77877 0 4.48435 0 2.88917C0 1.29445 1.33985 0 3.00143 0Z"
+                    fill="currentColor"></path>
+                  <path
+                    d="M8 7.41163H12.9188V9.67939H12.9892C13.6734 8.37528 15.3477 7 17.8442 7C23.0398 7 24 10.4348 24 14.9024V24H18.8691V15.9331C18.8691 14.0094 18.8362 11.5346 16.2027 11.5346C13.5327 11.5346 13.1253 13.6313 13.1253 15.7954V24H8V7.41163Z"
+                    fill="currentColor"></path>
+                </svg>
+              </a>
+            </div>
             <hr class="mb-8" />
           </div>
           <slot />
