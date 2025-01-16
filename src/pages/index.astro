@@ -8,11 +8,11 @@ import Post from "../components/Post.astro";
 import Project from "../components/Project.astro";
 
 const posts = (await getCollection("blog")).sort(
-  (a: any, b: any) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+  (a: any, b: any) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 
 const projects = (await getCollection("projects")).sort(
-  (a: any, b: any) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+  (a: any, b: any) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 ---
 
@@ -36,8 +36,8 @@ const projects = (await getCollection("projects")).sort(
           </h1>
           <p data-aos="fade-up" class="mt-8 text-xl leading-[1.6]">
             I'm an experienced developer with a talent for blending technical
-            ability and creative expression to create unique interactive and
-            immersive experiences.
+            ability and creative expression to build compelling interactive
+            experiences.
           </p>
           <a
             data-aos="fade-up"
