@@ -38,7 +38,6 @@ public class Shoot : MonoBehaviour
         }
     }
 }
-
 ```
 
 ## Moving projectiles
@@ -109,7 +108,6 @@ public class Laser : MonoBehaviour
         transform.Translate(new Vector3(0, laserSpeed * Time.deltaTime, 0));
     }
 }
-
 ```
 
 When the Y position of a particular laser instance is greater than `screenTop`, we'll destroy it.
@@ -136,7 +134,6 @@ public class Laser : MonoBehaviour
         }
     }
 }
-
 ```
 
 If you play the game again, you should see lasers show up in the Hierarchy window before disappearing once they reach the top of the screen. It should look like this!
