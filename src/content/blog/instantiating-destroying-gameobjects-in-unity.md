@@ -1,15 +1,15 @@
 ---
-title: "Instantiating & Destroying Game Objects in Unity"
+title: "Instantiating & Destroying GameObjects in Unity"
 description: "A simple projectile system"
 pubDate: "Jan 15 2025"
-heroImage: "/creating-game-objects.jpeg"
+heroImage: "/creating-gameobjects.jpeg"
 ---
 
-Every game is a sequence of creating and destroying objects. Enemies are spawned to challenge the player. Treasure chests spill loot that disappears once it's collected. Understanding how to create and destroy these game objects in Unity is fundamental to building these mechanics.
+Every game is a sequence of creating and destroying objects. Enemies are spawned to challenge the player. Treasure chests spill loot that disappears once it's collected. Understanding how to create and destroy these [GameObjects](https://docs.unity3d.com/6000.0/Documentation/ScriptReference/GameObject.html) in Unity is fundamental to building these mechanics.
 
 ## Creating a prefab
 
-I'll use the example of an arcade shooter to demonstrate how to create and destroy Game Objects in Unity. After adding a cube to the scene to represent the player, we need to create a [prefab](https://docs.unity3d.com/Manual/Prefabs.html) for the projectile. In this case it's a space laser, but it could represent any kind of projectile—bullets, bombs, bananas.
+I'll use the example of an arcade shooter to demonstrate how to create and destroy GameObjects in Unity. After adding a cube to the scene to represent the player, we need to create a [prefab](https://docs.unity3d.com/Manual/Prefabs.html) for the projectile. In this case it's a space laser, but it could represent any kind of projectile—bullets, bombs, bananas.
 
 You can think of a prefab as a reusable GameObject. Any changes to the prefab can be applied to all instances of the prefab. I created the laser prefab as a capsule primitive with a red material. This can be swapped out for actual game art later.
 
@@ -89,7 +89,7 @@ Rather than allowing any type of GameObject, this will ensure that only objects 
 
 Before learning _how_ to destroy the laser instances, it's important to understand _why_. If you've played the game up to this point, you might notice how quickly the Hierarchy window fills up with lasers as you tap the space key. Once the lasers are off screen, there's no point in keeping track of them. This can lead to performance issues.
 
-To remove these game objects, we'll use the opposite of `Instantiate`, the aptly named [`Destroy`](https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Object.Destroy.html) function.
+To remove these GameObjects, we'll use the opposite of `Instantiate`, the aptly named [`Destroy`](https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Object.Destroy.html) function.
 
 First we'll add a field for keeping track of the top of the screen on the Y axis.
 
@@ -146,4 +146,4 @@ If you play the game again, you should see lasers show up in the Hierarchy windo
   Your browser does not support the video tag.
 </video>
 
-Now that you understand the basics of instantiating and destroying game objects in Unity, you can take this fundamental skill and apply it to all kinds of scenarios in your own games.
+Now that you understand the basics of instantiating and destroying GameObjects in Unity, you can take this fundamental skill and apply it to all kinds of scenarios in your own games.

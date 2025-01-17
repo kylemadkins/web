@@ -92,7 +92,7 @@ And this is the result! We have a simple screen wrapping system in Unity.
 
 ## Using a singleton
 
-Eventually, we will have other objects like enemies and projectiles that might need access to the same screen information used for wrapping. Sharing the screen information with many different game objects is a good use case for the [singleton pattern](https://en.wikipedia.org/wiki/Singleton_pattern). Instead of editing the left and right screen boundaries in different places, we can create a centralized place to store and access that information.
+Eventually, we will have other objects like enemies and projectiles that might need access to the same screen information used for wrapping. Sharing the screen information with many different GameObjects is a good use case for the [singleton pattern](https://en.wikipedia.org/wiki/Singleton_pattern). Instead of editing the left and right screen boundaries in different places, we can create a centralized place to store and access that information.
 
 Here's what that script would look like.
 
@@ -133,9 +133,9 @@ public class ScreenManager : MonoBehaviour
 
 ```
 
-The `ScreenManager` script will be attached to an empty game object in the scene. On [Awake](https://docs.unity3d.com/6000.0/Documentation/ScriptReference/MonoBehaviour.Awake.html) we assign the `Instance`, which is a publicly accessible static property on the class, to this empty game object. A static property is a property that lives on the class itself rather than an instance of the class.
+The `ScreenManager` script will be attached to an empty GameObject in the scene. On [Awake](https://docs.unity3d.com/6000.0/Documentation/ScriptReference/MonoBehaviour.Awake.html) we assign the `Instance`, which is a publicly accessible static property on the class, to this empty GameObject. A static property is a property that lives on the class itself rather than an instance of the class.
 
-If there are other game objects in the scene with the `ScreenManager` script attached, we'll also check for that and destroy them to prevent conflicts and unexpected errors.
+If there are other GameObjects in the scene with the `ScreenManager` script attached, we'll also check for that and destroy them to prevent conflicts and unexpected errors.
 
 Now we can use the `ScreenManager` in the `WrapHorizontal` method—and any other scripts!
 
