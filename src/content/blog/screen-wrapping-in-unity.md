@@ -89,3 +89,68 @@ And this is the result! We have a simple screen wrapping system in Unity.
   <source src="/unity-wrap.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
+
+## Using a singleton
+
+Eventually, we will have other objects like enemies and projectiles that might need access to the same screen information used for wrapping. Sharing the screen information with many different game objects is a good use case for the [singleton pattern](https://en.wikipedia.org/wiki/Singleton_pattern). Instead of editing the left and right screen boundaries in different places, we can create a centralized place to store and access that information.
+
+Here's what that script would look like.
+
+```csharp
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ScreenManager : MonoBehaviour
+{
+    [SerializeField] private float screenLeft = -11.3f;
+    [SerializeField] private float screenRight = 11.3f;
+
+    public static ScreenManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+
+    public float GetScreenLeft()
+    {
+        return screenLeft;
+    }
+
+    public float GetScreenRight()
+    {
+        return screenRight;
+    }
+}
+
+```
+
+The `ScreenManager` script will be attached to an empty game object in the scene. On [Awake](https://docs.unity3d.com/6000.0/Documentation/ScriptReference/MonoBehaviour.Awake.html) we assign the `Instance`, which is a publicly accessible static property on the class, to this empty game object. A static property is a property that lives on the class itself rather than an instance of the class.
+
+If there are other game objects in the scene with the `ScreenManager` script attached, we'll also check for that and destroy them to prevent conflicts and unexpected errors.
+
+Now we can use the `ScreenManager` in the `WrapHorizontal` method—and any other scripts!
+
+```csharp
+private void WrapHorizontal()
+{
+    var screenRight = ScreenManager.Instance.GetScreenRight();
+    var screenLeft = ScreenManager.Instance.GetScreenLeft();
+    if (transform.position.x > screenRight)
+    {
+        transform.position = new Vector3(screenLeft, transform.position.y, 0);
+    }
+    else if (transform.position.x < screenLeft)
+    {
+        transform.position = new Vector3(screenRight, transform.position.y, 0);
+    }
+}
+```
