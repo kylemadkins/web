@@ -71,17 +71,10 @@ add_custom_command(TARGET 2DGameEngine POST_BUILD
 
 # Copy DLLs
 if(WIN32)
-    set(SDL2_DEBUG_DLL "${CMAKE_BINARY_DIR}/thirdparty/SDL/SDL2d.dll")
-    set(SDL2_RELEASE_DLL "${CMAKE_BINARY_DIR}/thirdparty/SDL/SDL2.dll")
-    set(SDL2_IMAGE_DEBUG_DLL "${CMAKE_BINARY_DIR}/thirdparty/SDL_image/SDL2_imaged.dll")
-    set(SDL2_IMAGE_RELEASE_DLL "${CMAKE_BINARY_DIR}/thirdparty/SDL_image/SDL2_image.dll")
-
     add_custom_command(TARGET 2DGameEngine POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
-        $<$<CONFIG:Debug>:${SDL2_DEBUG_DLL}>
-        $<$<CONFIG:Debug>:${SDL2_IMAGE_DEBUG_DLL}>
-        $<$<CONFIG:Release>:${SDL2_RELEASE_DLL}>
-        $<$<CONFIG:Release>:${SDL2_IMAGE_RELEASE_DLL}>
+        $<TARGET_FILE:SDL2::SDL2>
+        $<TARGET_FILE:SDL2_image::SDL2_image>
         $<TARGET_FILE_DIR:2DGameEngine>
     )
 endif()
