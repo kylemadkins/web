@@ -28,22 +28,21 @@ cmake_minimum_required(VERSION 3.8)
 
 project("2DGameEngine")
 
-# Add source to this project's executable.
 add_executable(2DGameEngine "src/Main.cpp" "src/Game.h" "src/Game.cpp")
 
 # SDL
 add_subdirectory("thirdparty/SDL")
 
 # SDL_image
-option(SDL2IMAGE_VENDORED "Use vendored third-party libraries" ON)
+set(SDL2IMAGE_VENDORED ON CACHE BOOL "Use vendored third-party libraries" FORCE)
 add_subdirectory("thirdparty/SDL_image")
 
 # SDL_ttf
-option(SDL2TTF_VENDORED "Use vendored third-party libraries" ON)
+set(SDL2TTF_VENDORED ON CACHE BOOL "Use vendored third-party libraries" FORCE)
 add_subdirectory("thirdparty/SDL_ttf")
 
 # SDL_mixer
-option(SDL2MIXER_VENDORED "Use vendored third-party libraries" ON)
+set(SDL2MIXER_VENDORED ON CACHE BOOL "Use vendored third-party libraries" FORCE)
 add_subdirectory("thirdparty/SDL_mixer")
 
 target_link_libraries(2DGameEngine SDL2::SDL2 SDL2_image::SDL2_image SDL2_ttf::SDL2_ttf SDL2_mixer::SDL2_mixer)
@@ -57,6 +56,49 @@ include_directories("thirdparty/sol2/include")
 
 # imgui
 include_directories("thirdparty/imgui")
+
+# Lua
+set(LUA_DIR "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/lua")
+
+add_library(
+    lua STATIC
+    ${LUA_DIR}/lapi.c
+    ${LUA_DIR}/lauxlib.c
+    ${LUA_DIR}/lbaselib.c
+    ${LUA_DIR}/lcode.c
+    ${LUA_DIR}/lcorolib.c
+    ${LUA_DIR}/lctype.c
+    ${LUA_DIR}/ldblib.c
+    ${LUA_DIR}/ldebug.c
+    ${LUA_DIR}/ldo.c
+    ${LUA_DIR}/ldump.c
+    ${LUA_DIR}/lfunc.c
+    ${LUA_DIR}/lgc.c
+    ${LUA_DIR}/linit.c
+    ${LUA_DIR}/liolib.c
+    ${LUA_DIR}/llex.c
+    ${LUA_DIR}/lmathlib.c
+    ${LUA_DIR}/lmem.c
+    ${LUA_DIR}/loadlib.c
+    ${LUA_DIR}/lobject.c
+    ${LUA_DIR}/lopcodes.c
+    ${LUA_DIR}/loslib.c
+    ${LUA_DIR}/lparser.c
+    ${LUA_DIR}/lstate.c
+    ${LUA_DIR}/lstring.c
+    ${LUA_DIR}/lstrlib.c
+    ${LUA_DIR}/ltable.c
+    ${LUA_DIR}/ltablib.c
+    ${LUA_DIR}/ltm.c
+    ${LUA_DIR}/lundump.c
+    ${LUA_DIR}/lutf8lib.c
+    ${LUA_DIR}/lvm.c
+    ${LUA_DIR}/lzio.c
+)
+
+target_link_libraries(2DGameEngine lua)
+
+include_directories(${LUA_DIR})
 ```
 
 I've found that this structure makes adding external dependencies from GitHub relatively painless. After building and linking the dependencies, I added a few lines for copying any assets and DLL files to the final binary directory.
