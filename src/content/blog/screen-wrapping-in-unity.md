@@ -2,13 +2,13 @@
 title: "Screen Wrapping in Unity"
 description: "How to recreate a classic arcade mechanic"
 pubDate: "Jan 13 2025"
-heroImage: "/pac.png"
+heroImage: "/blog/hero/pac.png"
 ---
 
-Screen wrapping or [wraparound](https://en.wikipedia.org/wiki/Wraparound_(video_games)) is a popular game mechanic where a player that moves off one side of the screen instantly reappears on the opposite side, creating the illustion of a continuous play area and preventing the player from traveling off camera. A famous example of this mechanic is Pac-Man.
+Screen wrapping or [wraparound](<https://en.wikipedia.org/wiki/Wraparound_(video_games)>) is a popular game mechanic where a player that moves off one side of the screen instantly reappears on the opposite side, creating the illustion of a continuous play area and preventing the player from traveling off camera. A famous example of this mechanic is Pac-Man.
 
 <video autoplay loop muted playsinline>
-  <source src="/pac-wrap.mp4" type="video/mp4">
+  <source src="/blog/pac-wrap.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
     [SerializeField] private int moveSpeed = 10;
     [SerializeField] private float screenLeft = -11.3f;
     [SerializeField] private float screenRight = 11.3f;
-    
+
     private void Start()
     {
         transform.position = new Vector3(0, 0, 0);
@@ -86,7 +86,7 @@ private void HandleMovement(Vector2 input)
 And this is the result! We have a simple screen wrapping system in Unity.
 
 <video autoplay loop muted playsinline>
-  <source src="/unity-wrap.mp4" type="video/mp4">
+  <source src="/blog/unity-wrap.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 

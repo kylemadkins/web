@@ -2,7 +2,7 @@
 title: "SDL Game Development with CMake"
 description: "Semi-painless dependency management in C++"
 pubDate: "Oct 3 2024"
-heroImage: "/2dengine.png"
+heroImage: "/blog/hero/2dengine.png"
 ---
 
 A while ago I started a course on [2D game engine programming](https://pikuma.com/courses/cpp-2d-game-engine-development) with C++. The course is taught by [Gustavo Pezzi](https://pikuma.com/about), a university lecturer in London. If you're interested in low-level programming and game development, I highly recommend checking him out. It's difficult to find resources on building interesting things with plain C++, so his site is a rare gem.
@@ -11,11 +11,11 @@ A while ago I started a course on [2D game engine programming](https://pikuma.co
 
 You'll often hear that C++ is not an easy language to learn. But I think that the most difficult aspect of C++ programming is the development environment. Coming from JavaScript, I quickly learned that I'd been spoiled by the ecosystem. Adding and managing dependencies is as simple as typing `npm install`. There's no such luxury with C++. Dealing with minor browser inconsistencies is a dream compared to building truly cross-platform C++ applications.
 
-![My first successful cross-platform build](/evidence.jpg)
+![My first successful cross-platform build](/blog/evidence.jpg)
 
 In the 2D game engine course, Gustavo walks through installing and linking dependencies for each operating system. But what if I want my game engine to work on _all_ operating systems? After all, many popular game engines such as Unity and Godot support every major operating system.
 
-![Godot is available for Windows, Mac, and Linux](/godot-cross-platform.png)
+![Godot is available for Windows, Mac, and Linux](/blog/godot-cross-platform.png)
 
 ## My Solution
 

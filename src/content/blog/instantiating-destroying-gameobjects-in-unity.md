@@ -2,7 +2,7 @@
 title: "Instantiating & Destroying GameObjects in Unity"
 description: "A simple projectile system"
 pubDate: "Jan 15 2025"
-heroImage: "/creating-gameobjects.jpeg"
+heroImage: "/blog/hero/creating-gameobjects.jpeg"
 ---
 
 Every game is a sequence of creating and destroying objects. Enemies are spawned to challenge the player. Treasure chests spill loot that disappears once it's collected. Understanding how to create and destroy these [GameObjects](https://docs.unity3d.com/6000.0/Documentation/ScriptReference/GameObject.html) in Unity is fundamental to building these mechanics.
@@ -13,11 +13,11 @@ I'll use the example of an arcade shooter to demonstrate how to create and destr
 
 You can think of a prefab as a reusable GameObject. Any changes to the prefab can be applied to all instances of the prefab. I created the laser prefab as a capsule primitive with a red material. This can be swapped out for actual game art later.
 
-![Laser prefab](/laser-prefab.png)
+![Laser prefab](/blog/laser-prefab.png)
 
 ## Spawning instances of the prefab
 
-An [instance](https://en.wikipedia.org/wiki/Instance_(computer_science)) is just an occurrence of an object. For example, if there are two lasers fired, there are two instances of the laser prefab. Creating an instance is referred to as _instantiation_.
+An [instance](<https://en.wikipedia.org/wiki/Instance_(computer_science)>) is just an occurrence of an object. For example, if there are two lasers fired, there are two instances of the laser prefab. Creating an instance is referred to as _instantiation_.
 
 To allow the player to fire lasers, we'll need to instantiate the laser prefab based on some kind of input. We'll add a `Shoot` script to the player cube. When the player presses the space key, we'll use Unity's [`Instantiate`](https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Object.Instantiate.html) function to create an instance of the `Laser` prefab at the player's position.
 
@@ -29,7 +29,7 @@ using UnityEngine;
 public class Shoot : MonoBehaviour
 {
     [SerializeField] private GameObject laserPrefab;
-    
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -52,7 +52,7 @@ using UnityEngine;
 public class Laser : MonoBehaviour
 {
     public int laserSpeed = 10;
-    
+
     private void Update()
     {
         transform.Translate(new Vector3(0, laserSpeed * Time.deltaTime, 0));
@@ -71,7 +71,7 @@ public class Shoot : MonoBehaviour
 {
     // [SerializeField] private GameObject laserPrefab; <- Old
     [SerializeField] private Laser laserPrefab; // <- New
-    
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -100,9 +100,9 @@ using UnityEngine;
 public class Laser : MonoBehaviour
 {
     [SerializeField] private float screenTop = 8f; // <- New
-    
+
     public int laserSpeed = 10;
-    
+
     private void Update()
     {
         transform.Translate(new Vector3(0, laserSpeed * Time.deltaTime, 0));
@@ -120,9 +120,9 @@ using UnityEngine;
 public class Laser : MonoBehaviour
 {
     [SerializeField] private float screenTop = 8f;
-    
+
     public int laserSpeed = 10;
-    
+
     private void Update()
     {
         transform.Translate(new Vector3(0, laserSpeed * Time.deltaTime, 0));
@@ -139,7 +139,7 @@ public class Laser : MonoBehaviour
 If you play the game again, you should see lasers show up in the Hierarchy window before disappearing once they reach the top of the screen. It should look like this!
 
 <video autoplay loop muted playsinline>
-  <source src="/projectiles.mp4" type="video/mp4">
+  <source src="/blog/projectiles.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 

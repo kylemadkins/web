@@ -2,19 +2,19 @@
 title: "Crystal Bridges"
 description: "An interactive timeline of the Supreme Court"
 pubDate: "October 4, 2024"
-heroImage: "/cb.jpg"
+heroImage: "/projects/hero/cb.jpg"
 ---
 
 During my time at [Few](https://few.io/), I was given the opportunity to collaborate with the [Crystal Bridges Museum of American Art](https://crystalbridges.org/) in Northwest Arkansas to build an interactive timeline of landmark Supreme Court cases for a new exhibit titled _[We the People: The Radical Notion of Democracy](https://crystalbridges.org/calendar/we-the-people/)_. The timeline offered visitors a more engaging way to learn about the history of the United States.
 
-![Crystal Bridges magnet](/magnet.jpg)
+![Crystal Bridges magnet](/projects/magnet.jpg)
 
 Years later, this is still one of the most personally rewarding projects I've ever worked on. When the exhibit opened, I made the 3 hour drive from Little Rock to Bentonville to watch people interact with the timeline in person.
 
 ## Technology
 
 <video autoplay loop muted playsinline>
-  <source src="/cb-timeline.mp4" type="video/mp4">
+  <source src="/projects/cb-timeline.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
@@ -28,15 +28,16 @@ Outside of the SSG considerations, the majority of the technical work for this p
 
 ```css
 .selector {
-  background: url("/images/timeline-grain.png") no-repeat bottom 25vh left / 100% 356px,
-              url("/images/background-grain.png") no-repeat top,
-              linear-gradient(to bottom, $primaryBlue 0% 75vh, transparent 75vh 100%),
-              url("/images/more-info-bg.png") no-repeat center / cover;
+  background:
+    url("/images/timeline-grain.png") no-repeat bottom 25vh left / 100% 356px,
+    url("/images/background-grain.png") no-repeat top,
+    linear-gradient(to bottom, $primaryBlue 0% 75vh, transparent 75vh 100%),
+    url("/images/more-info-bg.png") no-repeat center / cover;
   background-blend-mode: normal, multiply;
 }
 ```
 
-![Background CSS](/bg-css.jpg)
+![Background CSS](/projects/bg-css.jpg)
 
 ## Challenges
 

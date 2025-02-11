@@ -2,7 +2,7 @@
 title: "2D Game Engine"
 description: "A cross-platform game engine written in C++"
 pubDate: "October 3, 2024"
-heroImage: "/2dengine.png"
+heroImage: "/projects/hero/2dengine.png"
 ---
 
 I recently started a course on 2D game engine development with [Pikuma](https://pikuma.com/courses/cpp-2d-game-engine-development), which covers everything from creating a basic game loop and using [SDL](https://www.libsdl.org) to handle input and graphics to building a full-fledged entity component system from scratch.
