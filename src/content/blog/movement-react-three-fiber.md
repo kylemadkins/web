@@ -240,7 +240,7 @@ Finally, we use the `ref` to directly modify the position of the mesh in `useFra
 
 I've had a _lot_ of fun with React Three Fiber so far and can't wait to explore it more. Programming interactive 3D scenes declaratively feels super intuitive. It reminds me a little of [A-Frame](https://aframe.io/) but with all of the power that React provides.
 
-If you're interested in seeing the code in detail, you can check out my branch on [GitHub](https://github.com/kylemadkins/r3f/tree/movement).
+If you're interested in seeing the code in detail, you can check out my branch on [GitHub](https://github.com/kylemadkins/fiber/tree/movement).
 
 And if you want to learn more about Three.js and React Three Fiber, I highly recommend these resources.<br />
 Three.js Journey https://threejs-journey.com<br />
